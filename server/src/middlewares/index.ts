@@ -11,6 +11,7 @@ function createMiddleware(ipx, options) {
     const { config } = options
 
     return async function ipxMiddleware(ctx, next) {
+        ctx.set("Access-Control-Allow-Origin", "*")
         let path = null
         config.paths.forEach((target) => {
             if (ctx.req.url.includes(target)) {
